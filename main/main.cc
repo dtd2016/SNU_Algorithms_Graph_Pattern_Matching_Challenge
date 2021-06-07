@@ -15,6 +15,8 @@ int main(int argc, char* argv[]) {
     return EXIT_FAILURE;
   }
 
+  Backtrack backtrack(clock());
+
   std::string data_file_name = argv[1];
   std::string query_file_name = argv[2];
   std::string candidate_set_file_name = argv[3];
@@ -22,8 +24,6 @@ int main(int argc, char* argv[]) {
   Graph data(data_file_name);
   Graph query(query_file_name, true);
   CandidateSet candidate_set(candidate_set_file_name);
-
-  Backtrack backtrack;
 
   backtrack.PrintAllMatches(data, query, candidate_set);
 
